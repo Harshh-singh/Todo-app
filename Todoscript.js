@@ -1,7 +1,14 @@
+//this function contain all the operations
+
 var ToDo = (function () {
+    //array of task
     let tasks = [];
+    //array of completed task
     let completedTask= [];
+    //array of uncompleted task
     let uncompletedTask= [];
+
+    //now we have to get the elements
     const taskList = document.getElementById('list');
     const addTaskInput = document.getElementById('add');
     const tasksCounter = document.getElementById('tasks-counter');
@@ -9,10 +16,12 @@ var ToDo = (function () {
     const uncompletedtaskscounter = document.getElementById("uncomplete-tasks-counter");
    
 
+    //this function will call our renderlist function
     async function initialize() {    
             renderList();
     }
 
+    //this will send our tasks to html 
     function addTaskToDOM(task) {
         const li = document.createElement('li');
         li.innerHTML = `<input type="checkbox" id=${task.id} ${task.completed ? 'checked' : ''} data-id="12" class="custom-checkbox">
@@ -22,7 +31,7 @@ var ToDo = (function () {
     }
 
 
-
+    //this will show all our tasks list on display
     function renderList() {
         taskList.innerHTML = "";
          completedTask= [];
@@ -43,7 +52,7 @@ var ToDo = (function () {
         uncompletedtaskscounter.innerHTML = uncompletedTask.length;
 
     }
-
+    //this will set the task as complete
     function toggleTask(taskId) {
         tasks.forEach(element => {
             if (element.id === taskId) {
@@ -53,7 +62,7 @@ var ToDo = (function () {
             }
         });
     }
-
+    //this will delete the task
     function deleteTask(taskId) {
         let newTasks = tasks.filter(function (task) {
             return (task.id != taskId);
@@ -62,7 +71,7 @@ var ToDo = (function () {
         renderList();
         showNotification("Task deleted successfully");
     }
-
+    //this function add a new task to list
     async function addTask(task) {
         if (task) {
                 tasks.push(task);
@@ -77,7 +86,7 @@ var ToDo = (function () {
     function showNotification(title) {
         alert(title);
     }
-
+    //this will hendle our keypress of adding a task
     function handleInputPress(e) {
         if (e.key === "Enter") {
             let title = e.target.value;
@@ -96,6 +105,7 @@ var ToDo = (function () {
 
     }
 
+    //this function will call one function either toggletask or deletetask
     function handleEvent(e) {
         const target = e.target;
    
