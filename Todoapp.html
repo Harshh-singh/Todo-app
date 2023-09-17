@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Todo</title>
+    <script src="https://kit.fontawesome.com/da2a48d4f5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./Todostyle.css" />
+  </head>
+  <body>
+    <h1>Todo List App</h1>
+
+    <div id="container">
+      <div id="input-container">
+        <i class="fa-solid fa-file-circle-check" id="list-logo"></i>
+        <input
+          placeholder="Add a task"
+          class="add-task"
+          id="add"
+          data-helloWord="asdasdas"
+        />
+      </div>
+
+      <div id="task-counter-container">
+        <span class="task-counter" id="total-tasks"
+          >Total tasks: <span id="tasks-counter">0</span></span
+        >
+
+        <span class="task-counter" id="completed-tasks"
+          >Completed tasks: <span id="complete-tasks-counter">0</span></span
+        >
+        <span class="task-counter" id="uncomplete-tasks"
+          >Uncomplete tasks: <span id="uncomplete-tasks-counter">0</span></span
+        >
+      </div>
+      <ul id="list">
+        <!-- <li>
+          <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
+          <label for="task1">Buy groceries</label>
+          <img src="bin.svg" class="delete" data-id="12" />
+        </li> -->
+      </ul>
+    </div>
+    
+    <script src="Todoscript.js"></script>
+   
+  </body>
+</html>
